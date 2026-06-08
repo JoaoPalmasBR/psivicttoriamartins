@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+    /* Paleta de Cores Premium */
+    --color-wine: #59110C;
+    --color-mustard: #B17F31;
+    --color-beige: #F5EFE6;
+    --color-beige-dark: #E8DCCB;
+    --color-brown: #3E2723;
+    --color-text-dark: #2C1E16;
+    --color-white: #FFFFFF;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--color-text-dark);
+    background-color: var(--color-beige);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 600;
+}
+
+/* Background Texture */
+.texture-bg {
+    background-color: var(--color-beige);
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20.5V18H0v-2h20v-2H0v-2h20v-2H0V8h20V6H0V4h20V2H0V0h22v20h2v-20h2v20h2v-20h2v20h2v-20h2v20h2v-20h2v20h2v-20h2v20h2v-20h2v20h2v-20h2v20h2v-20h2v22H20v-1.5zM0 20h2v20H0V20zm4 0h2v20H4V20zm4 0h2v20H8V20zm4 0h2v20h-2V20zm4 0h2v20h-2V20zm4 4h20v2H20v-2zm0 4h20v2H20v-2zm0 4h20v2H20v-2zm0 4h20v2H20v-2z' fill='%23e8dccb' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+/* Typography Enhancements */
+.text-wine { color: var(--color-wine) !important; }
+.text-mustard { color: var(--color-mustard) !important; }
+.text-brown { color: var(--color-brown) !important; }
+
+/* Hero Section */
+.masthead-custom {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+    background-size: cover;
+    background-position: center center;
+    background-color: var(--color-wine); /* Fallback */
+}
+
+.masthead-custom::before {
+    content: "";
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background: linear-gradient(to right, rgba(89, 17, 12, 0.9) 0%, rgba(62, 39, 35, 0.7) 100%);
+}
+
+.masthead-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Buttons */
+.btn-premium {
+    background-color: var(--color-mustard);
+    color: var(--color-white);
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 600;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    border: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(177, 127, 49, 0.4);
+}
+
+.btn-premium:hover {
+    background-color: #9A6C28;
+    color: var(--color-white);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(177, 127, 49, 0.6);
+}
+
+.btn-outline-premium {
+    background-color: transparent;
+    color: var(--color-wine);
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 600;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    border: 2px solid var(--color-wine);
+    transition: all 0.3s ease;
+}
+
+.btn-outline-premium:hover {
+    background-color: var(--color-wine);
+    color: var(--color-white);
+    transform: translateY(-3px);
+}
+
+/* Profile Image */
+.profile-img-container {
+    position: relative;
+    display: inline-block;
+}
+.profile-img-container::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    right: 15px;
+    bottom: 15px;
+    border: 3px solid var(--color-mustard);
+    border-radius: 20px;
+    z-index: 0;
+}
+.profile-img {
+    position: relative;
+    z-index: 1;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Services Cards (Portfolio replacement) */
+.service-card {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: all 0.4s ease;
+    background: var(--color-white);
+    height: 100%;
+    position: relative;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(89, 17, 12, 0.15);
+}
+
+.service-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.service-card:hover img {
+    transform: scale(1.05);
+}
+
+.service-card-body {
+    padding: 2rem;
+}
+
+.service-card h4 {
+    color: var(--color-wine);
+    margin-bottom: 1rem;
+}
+
+/* Floating WhatsApp Button */
+.float-whatsapp {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.float-whatsapp:hover {
+    background-color: #1ebe57;
+    color: #FFF;
+    transform: scale(1.1);
+}
+
+/* Animations */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20vh);
+    visibility: hidden;
+    transition: opacity 0.6s ease-out, transform 1.2s ease-out;
+    will-change: opacity, visibility;
+}
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+}
+
+/* Footer */
+footer {
+    background-color: var(--color-wine);
+    color: var(--color-beige);
+}
+.footer-social .social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0.1);
+    color: var(--color-beige);
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+.footer-social .social-link:hover {
+    background-color: var(--color-mustard);
+    color: var(--color-white);
+    transform: translateY(-3px);
+}
+
+/* ==========================================
+   Responsividade Mobile (Media Queries)
+   ========================================== */
+@media (max-width: 768px) {
+    .masthead-custom {
+        padding-top: 6rem;
+        padding-bottom: 4rem;
+        min-height: auto;
+        text-align: center;
+    }
+    
+    .masthead-custom .display-3 {
+        font-size: 2.5rem;
+    }
+    
+    .masthead-custom .lead {
+        font-size: 1.25rem !important;
+    }
+    
+    #sobre .display-5 {
+        font-size: 2.2rem;
+    }
+    
+    .profile-img-container::before {
+        display: none; /* Remover a borda deslocada no mobile para economizar espaço */
+    }
+    
+    .profile-img {
+        max-width: 250px !important;
+    }
+    
+    .service-card img {
+        height: 200px;
+    }
+    
+    .float-whatsapp {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .masthead-custom .display-3 {
+        font-size: 2rem;
+    }
+}
+
