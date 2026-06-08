@@ -13,7 +13,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 "titulo" => $_POST['servico_titulo'][$i] ?? '',
                 "descricao" => $_POST['servico_descricao'][$i] ?? '',
                 "imagem" => $_POST['servico_imagem'][$i] ?? '',
-                "tipo_link" => $_POST['servico_link'][$i] ?? 'nenhum'
+                "link_texto" => $_POST['servico_link_texto'][$i] ?? '',
+                "whatsapp_msg" => $_POST['servico_whatsapp_msg'][$i] ?? ''
             ];
         }
     }
@@ -25,8 +26,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         "sobre_mim" => $_POST['sobre_mim'] ?? '',
         "whatsapp_numero" => $_POST['whatsapp_numero'] ?? '',
         "mensagem_padrao" => $_POST['mensagem_padrao'] ?? '',
-        "mensagem_agendamento" => $_POST['mensagem_agendamento'] ?? '',
-        "mensagem_palestra" => $_POST['mensagem_palestra'] ?? '',
         "imagem_hero_bg" => $_POST['imagem_hero_bg'] ?? '',
         "imagem_perfil" => $_POST['imagem_perfil'] ?? '',
         "link_instagram" => $_POST['link_instagram'] ?? '',
@@ -64,7 +63,7 @@ $servicos = isset($dados['servicos']) && is_array($dados['servicos']) ? $dados['
         body { background-color: #f8f9fa; padding-bottom: 80px; }
         .card { box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: none; margin-bottom: 30px; }
         .card-header { background-color: #59110C; color: #fff; font-weight: bold; }
-        .service-box { border: 1px solid #dee2e6; border-radius: 8px; padding: 15px; margin-bottom: 15px; background-color: #fff; }
+        .service-box { border: 1px solid #dee2e6; border-radius: 8px; padding: 15px; margin-bottom: 15px; background-color: #fff; border-left: 5px solid #B17F31; }
     </style>
 </head>
 <body>
@@ -134,23 +133,18 @@ $servicos = isset($dados['servicos']) && is_array($dados['servicos']) ? $dados['
                         <!-- Coluna 2 -->
                         <div class="col-md-6">
                             <div class="card">
-                                <div class="card-header">WhatsApp & Mensagens</div>
+                                <div class="card-header">WhatsApp & Contato Geral</div>
                                 <div class="card-body">
                                     <div class="mb-3">
                                         <label class="form-label">Número do WhatsApp (apenas números)</label>
                                         <input type="text" class="form-control" name="whatsapp_numero" value="<?= getValue('whatsapp_numero', $dados) ?>">
                                     </div>
                                     <div class="mb-3">
-                                        <label class="form-label">Mensagem Padrão (Botão Flutuante)</label>
+                                        <label class="form-label">Mensagem Padrão (Botão Flutuante e Banner Hero)</label>
                                         <input type="text" class="form-control" name="mensagem_padrao" value="<?= getValue('mensagem_padrao', $dados) ?>">
                                     </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">Mensagem para Agendamento</label>
-                                        <input type="text" class="form-control" name="mensagem_agendamento" value="<?= getValue('mensagem_agendamento', $dados) ?>">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">Mensagem para Palestras</label>
-                                        <input type="text" class="form-control" name="mensagem_palestra" value="<?= getValue('mensagem_palestra', $dados) ?>">
+                                    <div class="alert alert-info small mt-2">
+                                        As mensagens específicas de cada serviço agora são configuradas diretamente na aba <strong>Áreas de Atuação</strong>!
                                     </div>
                                 </div>
                             </div>
@@ -174,38 +168,41 @@ $servicos = isset($dados['servicos']) && is_array($dados['servicos']) ? $dados['
 
                 <!-- ABA: ÁREAS DE ATUAÇÃO -->
                 <div class="tab-pane fade" id="servicos" role="tabpanel">
+                    <div class="alert alert-warning">
+                        Personalize seus serviços e as mensagens específicas de WhatsApp que o cliente enviará ao clicar neles!
+                    </div>
                     <div class="card">
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <span>Gerenciar Áreas de Atuação</span>
-                            <button type="button" class="btn btn-sm btn-light" onclick="addService()">+ Adicionar Área</button>
+                            <button type="button" class="btn btn-sm btn-light text-dark fw-bold" onclick="addService()">+ Adicionar Área</button>
                         </div>
                         <div class="card-body" id="services-container">
                             <?php foreach($servicos as $index => $servico): ?>
                             <div class="service-box">
-                                <div class="d-flex justify-content-between">
-                                    <h5>Área de Atuação</h5>
-                                    <button type="button" class="btn btn-sm btn-outline-danger" onclick="this.parentElement.parentElement.remove()">Remover</button>
+                                <div class="d-flex justify-content-between mb-3">
+                                    <h5 class="text-secondary"><i class="fa-solid fa-layer-group"></i> Área de Atuação</h5>
+                                    <button type="button" class="btn btn-sm btn-outline-danger" onclick="this.parentElement.parentElement.remove()">Excluir</button>
                                 </div>
                                 <div class="row mt-2">
-                                    <div class="col-md-6 mb-2">
-                                        <label class="form-label">Título</label>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label fw-bold">Título</label>
                                         <input type="text" class="form-control" name="servico_titulo[]" value="<?= htmlspecialchars($servico['titulo'] ?? '') ?>" required>
                                     </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label class="form-label">Link da Imagem</label>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label fw-bold">Link da Imagem</label>
                                         <input type="text" class="form-control" name="servico_imagem[]" value="<?= htmlspecialchars($servico['imagem'] ?? '') ?>">
                                     </div>
-                                    <div class="col-md-8 mb-2">
-                                        <label class="form-label">Descrição Breve</label>
+                                    <div class="col-md-12 mb-3">
+                                        <label class="form-label fw-bold">Descrição Breve</label>
                                         <input type="text" class="form-control" name="servico_descricao[]" value="<?= htmlspecialchars($servico['descricao'] ?? '') ?>">
                                     </div>
                                     <div class="col-md-4 mb-2">
-                                        <label class="form-label">Link do Botão (Opcional)</label>
-                                        <select class="form-control" name="servico_link[]">
-                                            <option value="nenhum" <?= ($servico['tipo_link'] ?? '') === 'nenhum' ? 'selected' : '' ?>>Sem Link</option>
-                                            <option value="agendamento" <?= ($servico['tipo_link'] ?? '') === 'agendamento' ? 'selected' : '' ?>>WhatsApp (Agendamento)</option>
-                                            <option value="palestra" <?= ($servico['tipo_link'] ?? '') === 'palestra' ? 'selected' : '' ?>>WhatsApp (Palestra)</option>
-                                        </select>
+                                        <label class="form-label fw-bold text-success">Texto do Botão</label>
+                                        <input type="text" class="form-control border-success" name="servico_link_texto[]" value="<?= htmlspecialchars($servico['link_texto'] ?? '') ?>" placeholder="Ex: Agendar Sessão (Deixe em branco p/ ocultar)">
+                                    </div>
+                                    <div class="col-md-8 mb-2">
+                                        <label class="form-label fw-bold text-success">Mensagem Automática (WhatsApp)</label>
+                                        <input type="text" class="form-control border-success" name="servico_whatsapp_msg[]" value="<?= htmlspecialchars($servico['whatsapp_msg'] ?? '') ?>" placeholder="Ex: Olá, gostaria de saber mais sobre...">
                                     </div>
                                 </div>
                             </div>
@@ -230,30 +227,30 @@ $servicos = isset($dados['servicos']) && is_array($dados['servicos']) ? $dados['
             const container = document.getElementById('services-container');
             const html = `
             <div class="service-box">
-                <div class="d-flex justify-content-between">
-                    <h5>Área de Atuação Nova</h5>
-                    <button type="button" class="btn btn-sm btn-outline-danger" onclick="this.parentElement.parentElement.remove()">Remover</button>
+                <div class="d-flex justify-content-between mb-3">
+                    <h5 class="text-secondary"><i class="fa-solid fa-layer-group"></i> Nova Área</h5>
+                    <button type="button" class="btn btn-sm btn-outline-danger" onclick="this.parentElement.parentElement.remove()">Excluir</button>
                 </div>
                 <div class="row mt-2">
-                    <div class="col-md-6 mb-2">
-                        <label class="form-label">Título</label>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-bold">Título</label>
                         <input type="text" class="form-control" name="servico_titulo[]" required>
                     </div>
-                    <div class="col-md-6 mb-2">
-                        <label class="form-label">Link da Imagem</label>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-bold">Link da Imagem</label>
                         <input type="text" class="form-control" name="servico_imagem[]">
                     </div>
-                    <div class="col-md-8 mb-2">
-                        <label class="form-label">Descrição Breve</label>
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label fw-bold">Descrição Breve</label>
                         <input type="text" class="form-control" name="servico_descricao[]">
                     </div>
                     <div class="col-md-4 mb-2">
-                        <label class="form-label">Link do Botão (Opcional)</label>
-                        <select class="form-control" name="servico_link[]">
-                            <option value="nenhum">Sem Link</option>
-                            <option value="agendamento">WhatsApp (Agendamento)</option>
-                            <option value="palestra">WhatsApp (Palestra)</option>
-                        </select>
+                        <label class="form-label fw-bold text-success">Texto do Botão</label>
+                        <input type="text" class="form-control border-success" name="servico_link_texto[]" placeholder="Ex: Agendar Sessão">
+                    </div>
+                    <div class="col-md-8 mb-2">
+                        <label class="form-label fw-bold text-success">Mensagem Automática (WhatsApp)</label>
+                        <input type="text" class="form-control border-success" name="servico_whatsapp_msg[]" placeholder="Ex: Olá, quero falar sobre...">
                     </div>
                 </div>
             </div>`;

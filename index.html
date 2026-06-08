@@ -41,7 +41,7 @@
                 <div class="col-lg-7 text-center text-lg-start mb-5 mb-lg-0 fade-in-section">
                     <h1 class="display-3 fw-bold mb-3" id="conf_slogan">Carregando slogan...</h1>
                     <p class="lead mb-5 fs-4" style="color: var(--color-beige-dark);">Dê o primeiro passo para o seu bem-estar emocional.</p>
-                    <a class="btn btn-premium btn-agendar" href="#">Falar no WhatsApp <i class="fa-brands fa-whatsapp ms-2"></i></a>
+                    <a class="btn btn-premium" id="btn-hero" href="#" target="_blank">Falar no WhatsApp <i class="fa-brands fa-whatsapp ms-2"></i></a>
                 </div>
             </div>
         </div>
@@ -61,7 +61,7 @@
                     <h2 class="display-5 text-wine mb-4">Victtoria Martins</h2>
                     <h5 class="text-brown mb-4" id="conf_crp">Carregando CRP...</h5>
                     <p class="lead fs-5" id="conf_sobre">Carregando sobre mim...</p>
-                    <a class="btn btn-outline-premium mt-4 btn-agendar" href="#">Agendar uma Sessão</a>
+                    <a class="btn btn-outline-premium mt-4" id="btn-sobre" href="#" target="_blank">Agendar uma Sessão</a>
                 </div>
             </div>
         </div>
@@ -75,7 +75,7 @@
                 <h2 class="display-5 text-wine">Áreas de Atuação</h2>
             </div>
             
-            <div class="row g-4" id="servicos-container">
+            <div class="row g-4 justify-content-center" id="servicos-container">
                 <!-- Serviços gerados dinamicamente via JS -->
             </div>
         </div>
@@ -124,9 +124,9 @@
                     setElem('conf_slogan', siteConfig.slogan);
                     setElem('conf_sobre', siteConfig.sobre_mim);
 
-                    // Injetar Links WhatsApp
-                    document.querySelectorAll('.btn-agendar').forEach(btn => btn.href = getWappLink(siteConfig.mensagem_agendamento));
-                    document.querySelectorAll('.btn-palestra').forEach(btn => btn.href = getWappLink(siteConfig.mensagem_palestra));
+                    // Injetar Links WhatsApp Globais
+                    if(document.getElementById('btn-hero')) document.getElementById('btn-hero').href = getWappLink(siteConfig.mensagem_padrao);
+                    if(document.getElementById('btn-sobre')) document.getElementById('btn-sobre').href = getWappLink(siteConfig.mensagem_padrao);
                     if(document.getElementById('float-whatsapp')) document.getElementById('float-whatsapp').href = getWappLink(siteConfig.mensagem_padrao);
 
                     // Injetar Links Sociais
@@ -141,16 +141,21 @@
                     const container = document.getElementById('servicos-container');
                     if (container && siteConfig.servicos) {
                         container.innerHTML = ''; // Limpar antes de renderizar
+                        
+                        const total = siteConfig.servicos.length;
+                        let colClass = "col-md-6 col-lg-3";
+                        if (total === 1) colClass = "col-md-8 col-lg-6";
+                        else if (total === 2) colClass = "col-md-6 col-lg-5";
+                        else if (total === 3) colClass = "col-md-6 col-lg-4";
+
                         siteConfig.servicos.forEach(servico => {
                             let linkHtml = '';
-                            if (servico.tipo_link === 'agendamento') {
-                                linkHtml = `<div class="mt-3"><a href="${getWappLink(siteConfig.mensagem_agendamento)}" class="text-mustard fw-bold text-decoration-none">Agendar Sessão <i class="fa-solid fa-arrow-right"></i></a></div>`;
-                            } else if (servico.tipo_link === 'palestra') {
-                                linkHtml = `<div class="mt-3"><a href="${getWappLink(siteConfig.mensagem_palestra)}" class="text-mustard fw-bold text-decoration-none">Convidar <i class="fa-solid fa-arrow-right"></i></a></div>`;
+                            if (servico.link_texto && servico.whatsapp_msg) {
+                                linkHtml = `<div class="mt-3"><a href="${getWappLink(servico.whatsapp_msg)}" target="_blank" class="text-mustard fw-bold text-decoration-none">${servico.link_texto} <i class="fa-solid fa-arrow-right"></i></a></div>`;
                             }
 
                             const cardHtml = `
-                            <div class="col-md-6 col-lg-3">
+                            <div class="${colClass}">
                                 <div class="service-card">
                                     <img src="${servico.imagem}" alt="${servico.titulo}">
                                     <div class="service-card-body">
