@@ -1,0 +1,38 @@
+backend:
+  name: git-gateway
+  branch: main # Branch principal do seu Github (ajuste se for 'master')
+
+# Onde as imagens serão salvas e como serão referenciadas
+media_folder: "img"
+public_folder: "img"
+
+collections:
+  - name: "configuracoes"
+    label: "Configurações"
+    editor:
+      preview: false
+    files:
+      - label: "Dados do Site"
+        name: "data"
+        file: "config/data.json"
+        description: "Edite os textos e imagens principais do site"
+        fields:
+          - {label: "Nome", name: "nome", widget: "string"}
+          - {label: "CRP", name: "crp", widget: "string"}
+          - {label: "Slogan", name: "slogan", widget: "string"}
+          - {label: "Sobre Mim", name: "sobre_mim", widget: "text"}
+          - {label: "Número do WhatsApp (apenas números)", name: "whatsapp_numero", widget: "string"}
+          - {label: "Mensagem Padrão (Botão Flutuante e Hero)", name: "mensagem_padrao", widget: "string"}
+          - {label: "Fundo da Página Inicial (Hero Background)", name: "imagem_hero_bg", widget: "image"}
+          - {label: "Foto de Perfil", name: "imagem_perfil", widget: "image"}
+          - {label: "Link do Instagram", name: "link_instagram", widget: "string"}
+          - {label: "Link do Google Maps", name: "link_mapa", widget: "string"}
+          - label: "Áreas de Atuação"
+            name: "servicos"
+            widget: "list"
+            fields:
+              - {label: "Título", name: "titulo", widget: "string"}
+              - {label: "Descrição Breve", name: "descricao", widget: "text"}
+              - {label: "Imagem do Serviço", name: "imagem", widget: "image"}
+              - {label: "Texto do Botão", name: "link_texto", widget: "string", required: false}
+              - {label: "Mensagem Automática (WhatsApp)", name: "whatsapp_msg", widget: "string", required: false}
