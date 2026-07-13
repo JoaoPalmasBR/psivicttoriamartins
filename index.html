@@ -88,6 +88,20 @@
         </div>
     </section>
 
+    <!-- Como Acontecem os Atendimentos -->
+    <section class="py-5 bg-light fade-in-section" id="como-ajudar">
+        <div class="container px-4 py-5">
+            <div class="text-center mb-5">
+                <h3 class="text-mustard mb-2">Modalidades</h3>
+                <h2 class="display-5 text-wine">Como acontecem os atendimentos?</h2>
+            </div>
+            
+            <div class="row g-4 justify-content-center" id="como_ajudar-container">
+                <!-- Conteúdo gerado dinamicamente via JS -->
+            </div>
+        </div>
+    </section>
+
     <!-- Mapa e Localização -->
     <section class="fade-in-section" id="contato">
         <!-- Substituindo o iframe com um filtro para dar um ar mais elegante -->
@@ -174,6 +188,38 @@
                             </div>
                             `;
                             container.insertAdjacentHTML('beforeend', cardHtml);
+                        });
+                    }
+
+                    // Injetar "Como Acontecem os Atendimentos" Dinamicamente
+                    const comoAjudarContainer = document.getElementById('como_ajudar-container');
+                    if (comoAjudarContainer && siteConfig.como_ajudar) {
+                        comoAjudarContainer.innerHTML = ''; // Limpar antes de renderizar
+                        
+                        const totalComoAjudar = siteConfig.como_ajudar.length;
+                        let colClassCA = "col-md-6 col-lg-4"; // Mais largo para modalidades
+                        if (totalComoAjudar === 1) colClassCA = "col-md-8 col-lg-6";
+                        else if (totalComoAjudar === 2) colClassCA = "col-md-6 col-lg-5";
+
+                        siteConfig.como_ajudar.forEach(item => {
+                            let linkHtml = '';
+                            if (item.link_texto && item.whatsapp_msg) {
+                                linkHtml = `<div class="mt-auto pt-3"><a href="${getWappLink(item.whatsapp_msg)}" target="_blank" class="text-mustard fw-bold text-decoration-none">${item.link_texto} <i class="fa-solid fa-arrow-right"></i></a></div>`;
+                            }
+
+                            const cardHtml = `
+                            <div class="${colClassCA}">
+                                <div class="service-card h-100 d-flex flex-column">
+                                    <img src="${item.imagem}" alt="${item.titulo}">
+                                    <div class="service-card-body d-flex flex-column flex-grow-1">
+                                        <h4>${item.titulo}</h4>
+                                        <p class="flex-grow-1">${item.descricao}</p>
+                                        ${linkHtml}
+                                    </div>
+                                </div>
+                            </div>
+                            `;
+                            comoAjudarContainer.insertAdjacentHTML('beforeend', cardHtml);
                         });
                     }
 
