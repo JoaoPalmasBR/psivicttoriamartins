@@ -36,7 +36,7 @@ collections:
               - {label: "Imagem do Serviço", name: "imagem", widget: "image"}
               - {label: "Texto do Botão", name: "link_texto", widget: "string", required: false}
               - {label: "Mensagem Automática (WhatsApp)", name: "whatsapp_msg", widget: "string", required: false}
-          - label: "Como posso te ajudar?"
+          - label: "Como acontecem os atendimentos?"
             name: "como_ajudar"
             widget: "list"
             fields:
@@ -44,4 +44,4 @@ collections:
               - {label: "Descrição Breve", name: "descricao", widget: "text"}
               - {label: "Imagem", name: "imagem", widget: "image"}
               - {label: "Link do Botão", name: "link", widget: "string"}
-              
+
