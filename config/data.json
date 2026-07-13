@@ -30,6 +30,22 @@
   ],
   "imagem_perfil": "img/perfil_6a26252500247.jpg",
   "nome": "Psicóloga Victtoria Martins",
+  "como_ajudar": [
+    {
+      "imagem": "img/background.jpg",
+      "descricao": "Um espaço pensado para que você possa se dedicar ao seu processo terapêutico com privacidade, acolhimento e presença. Os atendimentos acontecem em Palmas/TO, em um ambiente seguro para explorar suas vivências e construir novos caminhos diante dos desafios da vida.",
+      "titulo": "Psicoterapia Presencial",
+      "link_texto": "Agendar Sessão",
+      "whatsapp_msg": "Olá, Victtoria! Gostaria de agendar uma consulta."
+    },
+    {
+      "titulo": "Psicoterapia Online",
+      "descricao": "Um espaço de escuta, acolhimento e cuidado que acontece onde você estiver. A psicoterapia online permite que o acompanhamento faça parte da sua rotina, oferecendo flexibilidade e acesso ao cuidado psicológico sem que a distância seja um impedimento. ",
+      "imagem": "img/background.jpg",
+      "link_texto": "Agendar Sessão",
+      "whatsapp_msg": "Olá, Victtoria! Gostaria de agendar uma consulta."
+    }
+  ],
   "imagem_hero_bg": "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?ixlib=rb-1.2.1&auto=format&fit=crop&w=2500&q=80",
   "slogan": "Por uma vida significativa e com sentido."
 }
