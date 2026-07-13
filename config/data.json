@@ -1,28 +1,35 @@
 {
-    "nome": "Psicóloga Victtoria Martins",
-    "crp": "CRP 23/2384",
-    "slogan": "Por uma vida significativa e com sentido.",
-    "sobre_mim": "Sou psicóloga clínica especialista em Psicoterapia do Luto e Terapia de Aceitação e Compromisso (ACT). Meu objetivo é ajudar você a encontrar sentido e viver uma vida alinhada aos seus valores, mesmo diante das maiores dificuldades.",
-    "whatsapp_numero": "5563992439288",
-    "mensagem_padrao": "Olá, Victtoria! Gostaria de mais informações sobre as sessões de psicoterapia.",
-    "imagem_hero_bg": "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?ixlib=rb-1.2.1&auto=format&fit=crop&w=2500&q=80",
-    "imagem_perfil": "img/perfil_6a26252500247.jpg",
-    "link_instagram": "https://www.instagram.com/psivicttoriamartins/",
-    "link_mapa": "https://www.google.com/maps/place/Palmas,+TO/@-10.2598833,-48.4172744,12z",
-    "servicos": [
-        {
-            "titulo": "Psicoterapia Presencial",
-            "descricao": "Um ambiente seguro e acolhedor em Palmas/TO para cuidarmos da sua saúde mental de perto.",
-            "imagem": "https://images.unsplash.com/photo-1544027993-37dbfe43562a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-            "link_texto": "Agendar Sessão",
-            "whatsapp_msg": "Olá, Victtoria! Gostaria de agendar uma consulta presencial em Palmas."
-        },
-        {
-            "titulo": "Psicoterapia On-line",
-            "descricao": "A mesma qualidade de atendimento, no conforto da sua casa, de qualquer lugar do mundo.",
-            "imagem": "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-            "link_texto": "Agendar Sessão",
-            "whatsapp_msg": "Olá, Victtoria! Gostaria de agendar uma consulta on-line."
-        }
-    ]
+  "crp": "CRP 23/2384",
+  "mensagem_padrao": "Olá, Victtoria! Gostaria de mais informações sobre as sessões de psicoterapia.",
+  "whatsapp_numero": "5563992439288",
+  "link_mapa": "https://www.google.com/maps/place/Palmas,+TO/@-10.2598833,-48.4172744,12z",
+  "sobre_mim": "Sou psicóloga clínica e minha formação, estudos e atuação são orientados pela Terapia de Aceitação e Compromisso (ACT). Acredito na psicoterapia como um espaço seguro e acolhedor, onde seja possível falar sobre vivências, sentimentos e dificuldades sem julgamentos.\nMeu trabalho busca auxiliar as pessoas a desenvolverem uma relação mais aberta e flexível com suas experiências internas, ao mesmo tempo em que constroem caminhos mais alinhados com aquilo que consideram importante e significativo em suas vidas.\nTambém possuo atuação voltada para o acompanhamento de processos de luto e outras experiências de perda, ruptura e transformação de vínculos, oferecendo uma escuta sensível e respeitosa para que essas vivências possam ser atravessadas no tempo e na forma que cada pessoa necessita.",
+  "link_instagram": "https://www.instagram.com/psivicttoriamartins/",
+  "servicos": [
+    {
+      "titulo": "Psicoterapia Individual",
+      "descricao": "A vida nem sempre acontece da forma como gostaríamos. Em alguns momentos, podemos nos sentir sobrecarregados, perdidos ou distantes daquilo que realmente importa para nós. A psicoterapia é um espaço para olhar com mais cuidado para essas experiências, compreender padrões que se repetem e desenvolver novas formas de lidar com pensamentos, emoções e desafios, construindo uma vida mais alinhada aos seus valores.",
+      "imagem": "img/photo-1548611635-b6e7827d7d4a.jpg",
+      "link_texto": "Agendar Sessão",
+      "whatsapp_msg": "Olá, Victtoria! Gostaria de agendar uma consulta."
+    },
+    {
+      "titulo": "Terapia de Casal",
+      "descricao": "Toda relação é construída por duas histórias, duas formas de sentir, pensar e se relacionar com o mundo. Quando surgem conflitos, desencontros ou momentos de sofrimento, pode ser difícil encontrar espaço para ouvir e ser ouvido. A terapia de casal propõe um ambiente seguro para que ambos possam compreender melhor os padrões que se estabeleceram na relação, desenvolver formas mais abertas de diálogo e se aproximar daquilo que desejam construir juntos. Mais do que buscar respostas prontas, o processo terapêutico convida o casal a olhar para sua relação com curiosidade, honestidade e respeito, favorecendo escolhas mais conscientes diante dos desafios e mudanças que surgem ao longo do caminho.",
+      "imagem": "img/background-2-.jpg",
+      "link_texto": "Agendar Sessão",
+      "whatsapp_msg": "Olá, Victtoria! Gostaria de agendar uma consulta."
+    },
+    {
+      "titulo": "Acompanhamento em Processos de Luto",
+      "descricao": "Perdas fazem parte da experiência humana e podem surgir de diferentes formas: pela morte de alguém importante, pelo fim de uma relação, por mudanças inesperadas ou por transformações significativas na vida. Este é um espaço para acolher a dor com respeito e sensibilidade, reconhecendo a singularidade de cada processo e construindo, no seu próprio tempo, novos sentidos. \n",
+      "whatsapp_msg": "Olá, Victtoria! Gostaria de agendar uma consulta.",
+      "link_texto": "Agendar Sessão",
+      "imagem": "img/background.jpg"
+    }
+  ],
+  "imagem_perfil": "img/perfil_6a26252500247.jpg",
+  "nome": "Psicóloga Victtoria Martins",
+  "imagem_hero_bg": "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?ixlib=rb-1.2.1&auto=format&fit=crop&w=2500&q=80",
+  "slogan": "Por uma vida significativa e com sentido."
 }
